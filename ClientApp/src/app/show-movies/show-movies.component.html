@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+
+</head>
+<body>
+  <button backButton=backButton>Back</button><br /><br />
+  <div class="container">
+    <div class="row card">
+      <div class="col-sm-12" *ngFor="let movie of movies">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-12" style="text-align:center"><h1>{{ movie.title }}</h1></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12"><h4>{{ movie.plot }}</h4></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3"><h5><span>Location - {{ movie.location }}</span></h5></div>
+            <div class="col-sm-3"><h5><span>Language - {{ movie.language }}</span></h5></div>
+            <div class="col-sm-3"><h5>IMDB Rating - {{ movie.imdbRating }}</h5></div>
+            <div class="col-sm-3"><h5><a href="https://imdb.com/title/{{ movie.imdbID }}">IMDB URL</a></h5></div>
+          </div>
+          <br /><br />
+          <img class="col-sm-6" height="600" src="{{ movie.poster }}" /><br /><br />
+          <div class="row">
+            <div *ngFor="let still of movie.stills">
+              <div class="col-sm-3"><img height="200" src="{{ still.stillURL }}" /></div>
+              <div class="col-sm-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

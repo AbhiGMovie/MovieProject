@@ -14,17 +14,47 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.4.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\Loader\**" />
+    <Compile Remove="MoviesTest\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\Loader\**" />
+    <Content Remove="MoviesTest\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\Loader\**" />
+    <EmbeddedResource Remove="MoviesTest\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\app\Loader\**" />
+    <None Remove="MoviesTest\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <TypeScriptCompile Remove="ClientApp\src\app\Loader\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\Loader\loader.component.html" />
+    <None Remove="ClientApp\src\app\Loader\loader.component.scss" />
+    <None Remove="ClientApp\src\app\Loader\loading.service.ts" />
+    <None Remove="ClientApp\src\app\loading.service.ts" />
+    <None Remove="ClientApp\src\backbutton.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\show-all\show-all.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\show-movies\show-movies.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
