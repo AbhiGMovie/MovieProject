@@ -28,9 +28,8 @@ import { ShowAllMoviesComponent } from './show-all/show-all.component';
     
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'show-movies/:id', component: ShowMoviesComponent },
-      { path: 'show-all', component: ShowAllMoviesComponent },
+      { path: '', component: ShowAllMoviesComponent, pathMatch: 'full' },
+      { path: 'show-movies/:id', component: ShowMoviesComponent },      
     ])
   ],
   providers: [],

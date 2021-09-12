@@ -29,6 +29,9 @@ insert into Movie(Language,Location,Plot,Poster,SoundEffects,imdbID,Title,listin
 'https://m.media-amazon.com/images/M/MV5BMTY3NTc4OTYxMF5BMl5BanBnXkFtZTcwMjk5NzUyMw@@._V1_.jpg_',
 'RX6,SDDS','tt0368891','National Treasure',4,6.9)
 
+insert into Movie values('Hindi','Kolkata','A couple from Chandni Chowk aspire to give their daughter the best education and thus be a part of and accepted by the elite of Delhi.',
+'https://m.media-amazon.com/images/M/MV5BY2E4NWQ4ZjEtNThlOC00NThjLThmZjgtMWU0MDgzMmYwOGU3XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg','RX6,SDDS','tt5764096','Hindi Medium',3,7.9)
+
 insert into Stills(stillURL)values
 ('https://m.mediaamazon.com/images/M/MV5BNTYxOTYyMzE3NV5BMl5BanBnXkFtZTcwOTMxNDY3Mw@@._V1_UY99_CR24,0,99,99_AL_.jpg'),
 ('https://m.mediaamazon.com/images/M/MV5BNzAwOTk3MDg5MV5BMl5BanBnXkFtZTcwNjQxNDY3Mw@@._V1_UY99_CR29,0,99,99_AL_.jpg'),

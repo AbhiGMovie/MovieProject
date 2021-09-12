@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class ShowAllMoviesComponent {
   public booleanValue: any = false;
+  public search: string = "";
+  public filterlocation: string = "";
+  public filterlanguage: string = "";
   public movies: Movie[];
   public uniquelanguage: string[];
   public uniquelocation: string[];
@@ -25,33 +28,52 @@ export class ShowAllMoviesComponent {
   public onoptionChanged(event) {
     var val = event.target.value;
     var id = event.target.id;
-    if (event.target.value === "ALL")
-      this.showmovies = this.movies;
-    else {
-      if (id == "ddlocation") {
-        this.showmovies = this.movies.filter(x => x.location === val);
-      }
-      else {
-        this.showmovies = this.movies.filter(x => x.language === val);
-      }
+    this.showmovies = this.movies;
+    if (id == "ddlocation") {
+      if (val == "ALL")
+        this.filterlocation = "";
+      else
+        this.filterlocation = val;           
     }
+    else {
+      if (val == "ALL")
+        this.filterlanguage = "";
+      else
+        this.filterlanguage = val;      
+    }
+    if (this.filterlocation != "")
+      this.showmovies = this.showmovies.filter(x => x.location === this.filterlocation);
+    if (this.filterlanguage != "")
+      this.showmovies = this.showmovies.filter(x => x.language === this.filterlanguage);
   }
-  public sortFunction(colName, boolean) {
+  public searchMovies() {
+    var val = this.search.toLowerCase();
+    this.showmovies = this.movies;
+    if (this.filterlocation !== "")
+      this.showmovies = this.showmovies.filter(x => x.location === this.filterlocation);
+    if (this.filterlanguage !== "")
+      this.showmovies = this.showmovies.filter(x => x.language === this.filterlanguage);
+    if(val != "")
+      this.showmovies = this.showmovies.filter(x => x.location.toLowerCase().includes(val) || x.language.toLowerCase().includes(val) || x.title.toLowerCase().includes(val) || x.imdbRating.toString().includes(val));
+    
+  }
+  public sortFunction(colName, boolean, event) {
+    var id = event.target.id;
+    var button = document.getElementById(id);
+    
     if (boolean == true) {
-      this.showmovies.sort((a, b) => a[colName] < b[colName] ? 1 : a[colName] > b[colName] ? -1 : 0)
-      this.booleanValue = !this.booleanValue
+      this.showmovies = this.showmovies.sort((a, b) => a[colName] < b[colName] ? 1 : a[colName] > b[colName] ? -1 : 0)
+      this.booleanValue = !this.booleanValue;
+      button.className = "fa fa-arrow-down";
     }
     else {
-      this.showmovies.sort((a, b) => a[colName] > b[colName] ? 1 : a[colName] < b[colName] ? -1 : 0)
-      this.booleanValue = !this.booleanValue
+      this.showmovies = this.showmovies.sort((a, b) => a[colName] > b[colName] ? 1 : a[colName] < b[colName] ? -1 : 0)
+      this.booleanValue = !this.booleanValue;
+      button.className = "fa fa-arrow-up";
     }
   }
+  
 }
-
- 
-
-
-
 
 interface Movie {
   Id: number;
@@ -60,8 +82,8 @@ interface Movie {
   location: string;
   Plot: string;
   Poster: string;
-  SoundEffects: string;
+  soundeffects: string;
   imdbID: string;
-  listingType: number;
+  listingtype: number;
   imdbRating: number;
 }
