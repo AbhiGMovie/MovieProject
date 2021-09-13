@@ -37,6 +37,8 @@ insert into Stills(stillURL)values
 ('https://m.mediaamazon.com/images/M/MV5BNzAwOTk3MDg5MV5BMl5BanBnXkFtZTcwNjQxNDY3Mw@@._V1_UY99_CR29,0,99,99_AL_.jpg'),
 ('https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._')
 
+select * from Users
+
 insert into MovieStills values(1,1),(1,2),(1,3)
 
 select * from Stills

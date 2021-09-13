@@ -31,6 +31,7 @@ namespace Movies
     }
     public partial class Users
     {
+        public Users() { }
         public int Id { get; set; }
         public string userName { get; set; }
         public string password { get; set; }

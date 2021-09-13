@@ -49,6 +49,8 @@
     <None Remove="ClientApp\src\app\Loader\loader.component.scss" />
     <None Remove="ClientApp\src\app\Loader\loading.service.ts" />
     <None Remove="ClientApp\src\app\loading.service.ts" />
+    <None Remove="ClientApp\src\app\login\login.component.ts" />
+    <None Remove="ClientApp\src\app\sign-up\signup.component.ts" />
     <None Remove="ClientApp\src\backbutton.ts" />
   </ItemGroup>
 
