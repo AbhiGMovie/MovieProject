@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+body {
+  
+  background: url("assets/background.png");
+  height: 100%;
+}
+
 a {
   color: #0366d6;
 }
@@ -13,4 +19,79 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+#block {
+  background: #CCC;
+  filter: opacity(60%);
+  /* IE */ 
+  /* Mozilla */
+  opacity: 0.6;
+  /* CSS3 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#text {
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  width: 200px;
+  height: 100px;
+  color: black !important;
+  background-color: #fff;
+}
+@media only screen and (min-width: 768px) {
+  .filterContainer {    
+    margin-bottom: 15px;
+  }
+
+    .filterContainer > div:first-child {
+      padding: 0.6em 1em;
+      background: rgb(193 197 251);
+      background: -moz-linear-gradient(top, rgba(193 197 251,1) 0%, rgba(153 177 251,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(193 197 251,1) 0%,rgba(153 177 251,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, rgba(193 197 251,1) 0%,rgba(153 177 251,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      border-radius: 3em;
+      margin-top: 15px;
+    }
+
+    .filterContainer select {
+      height: auto;
+      padding: 2px 12px;
+      border-radius: 12px;
+    }
+
+  .filter {
+    border-radius: 3em;
+    padding: 0.67em;
+    outline: none;
+  }
+
+  .navbar-default .nav > li {
+    border-left: 1px solid #d7d7d7;
+  }
+
+  .btn .caret {
+    position: absolute;
+    right: 5%;
+    top: 35%;
+  }
+}
+.box{
+    background-color:white !important;
+    border:medium;
+    
+}
+#filter {
+  position: relative;
+  z-index: 1;
+  left: -25px;
+  top: 1px;
+  color: #7B7B7B;
+  cursor: pointer;
+  width: 0;
 }

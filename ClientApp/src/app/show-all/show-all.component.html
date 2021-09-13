@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" async>
+</head>
+<body>
+  <ng-template #loading>
+    <div id="container">
+      <div id="block"></div>
+      <div id="text"><h3><img src="../../assets/ajax-loader.gif" alt="loader" />Loading...</h3></div>
+    </div>
+  </ng-template>
+  <div class="box" *ngIf="movies else loading">
+    <br />
+    <div class="filterContainer container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <select class="form-control selectpicker" id="ddlanguage" (change)='onoptionChanged($event)'>
+            <option hidden>Filter By Language</option>
+            <option *ngFor="let item of uniquelanguage">{{item}}</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <select class="form-control selectpicker" id="ddlocation" (change)='onoptionChanged($event)'>
+            <option hidden>Filter By Location</option>
+            <option *ngFor="let item of uniquelocation">{{item}}</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <input id="searchbox" type="text" placeholder="Search..." [(ngModel)]="search"/><i id="filter" class="fa fa-search" (click)='searchMovies()'></i>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
+      <thead>
+        <tr>
+          <th> Movie Title <button id="btntitle" (click)="sortFunction('title', booleanValue, $event)" class="fa fa-arrow-up"></button></th>
+          <th>Location <button id="btnlocation" (click)="sortFunction('title', booleanValue, $event)" class="fa fa-arrow-up"></button></th>
+          <th>Language <button id="btnlanguage" (click)="sortFunction('title', booleanValue, $event)" class="fa fa-arrow-up"></button></th>
+          <th>IMDB Rating <button id="btnrating" (click)="sortFunction('title', booleanValue, $event)" class="fa fa-arrow-up"></button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of showmovies">
+          <td><a class="nav-link" [routerLink]="['/show-movies/',movie.id]"> {{ movie.title }}</a></td>
+          <td>{{ movie.location }}</td>
+          <td>{{ movie.language }}</td>
+          <td>{{ movie.imdbRating }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
